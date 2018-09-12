@@ -1,0 +1,47 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{defn}{Definition}
+\newtheorem{lem}{Lemma}
+\newtheorem{pst}{Post}
+\author{John Howe}
+\title{Ramsey Theory of the Generic Ordered Equivalence Relation}
+\begin{document}
+\maketitle
+\begin{thm}
+Let $T$ be a finitely branching subtree of $\omega ^{<\omega}$, $n<\omega$ then there is a $d_T(n)$ such that for any $\sim$ an equivalence relation on $\omega$ with infinitely many classes, all infinite, and colouring $c: \mathcal{S}^n(T) \to k$ there is a strong subtree $S\leq T$ with levels $A\subseteq \omega$ such that $\sim |_A$ has infinitely many classes, all infinite and $|c``\mathcal{S}^n(T)|<d_T(n)$. I will think about estimating $d_T(n)$ in a bit.
+\end{thm}
+The proof we give will actually give us a canonical breakdown of those trees into $d_T(n)$ sections. This is given by the following.
+\begin{defn}
+For a $\sim $-tree $T$, and a strong subtree $S \leq T$ on levels $A$, the $\sim$-type of $S$ is the information telling you in which order the equivalence classes in $S$ appear, in $T$, relative to each other and to the levels in $S$. Let $A'$ be the set of first levels of equivalence classes featured in $A$, then the $\sim$-type is the induced ordered equivalence relation on $A\coprod A'$. Note that we take disjoint union so we can record if one of them is the first appearance of its equivalence class.
+\end{defn}
+We now restate the first theorem in the following way.
+\begin{thm}
+Let $T$ be a finitely branching subtree of $\omega ^{<\omega}$, $\sim$ an equivalence relation on $\omega$ with infinitely many classes, all infinite, and colouring $c: \mathcal{S}^E(T) \to r$ of copies of a given $\sim$-type, there is a strong subtree $S\leq T$ with levels $A\subseteq \omega$ such that $\sim |_A$ has infinitely many classes, all infinite on which the colouring is monochromatic.
+\end{thm}
+This will take a while to prove, bear with me. We will do so by induction on the size of $E$. As with many inductions on the natural numbers, we begin, with apologies for the perversity of the situation, with $n=1$. The following is this case.
+\begin{thm}
+Let $\langle T_i : i<d \rangle$ be a sequence of finitely branching rooted trees and $c: \prod T_i \to k$ a finite colouring. Then there is an $\vec{x}$ and a collection $\langle \vec{X}^n : n<\omega \rangle$ of matrices of increasing height such that for each $k$ there is some $n$ such that $\vec{X}^n$ is $k-\vec{x}-$dense and the colouring is monochromatic on the matrices and $\vec{x}$.
+\end{thm}
+
+\begin{lem}
+Let $T$ be a finitely branching subtree of $\omega ^{<\omega}$, $\sim$ an equivalence relation on $\omega$ with infinitely many classes, all infinite, and colouring $c: T \to r$ there is a strong subtree $S\leq T$ with levels $A\subseteq \omega$ such that $\sim |_A$ has infinitely many classes, all infinite on which the colouring is monochromatic.
+\begin{proof}
+We can, by thinning if necessary assume that the classes appear in a specified order, for which I have chosen that the $j^th$ class is those $k=\binom{i}{2} +j$ for $j<i$. So this looks initially like $00101201230\ldots$. We build inductively using as our inductive step the earlier restatement of the Halpern-Lauchli theorem and as a record keeping device will build another tree $A$. Consider the tree $T_0$ ``defined above'' and apply the theorem with $d=1$ to get an $s_{\emptyset}$ and sequence $\langle X_n : n<\omega \rangle$ of level-subsets all of which are the same colour and suffice to be $k-s_{\emptyset}$-dense for each $k$ and let $A(0)$ consist of a single node coloured the colour of $s_{\emptyset}$. Now pick the lowest $X_n$ above $s_{\langle \rangle}$ and pick $s' \geq t'$ from $X_n$ for each immediate successor $t'$ of $s$ in $T$ and let these form $S(1)$. Now suppose we have built $S(i)$ for $i<m$ of the required form. We look at $T'$ the immediate successors of $S(m-1)$ in $T$. If $T(m)$ is in an already considered equivalence class $a$, simply extend each $t'\in T'$ to members of a matrix $\vec{X}^a_n$ which can be done as they are dense. If not, it is new, and consider the trees $T_a[t']$ for $t' \in T$. Colour the product of these trees by the product of the colours given by $c$. By the theorem above extract $\vec{x}_m$ and matrices $\vec{X}^a_n$ on which the colouring is monochromatic and the matrices are sufficiently dense. Let $S(m)$ be $\vec{x}_m$, and $A(a)$ consist of nodes for each $t'\in T'$ in lexicographic order, coloured according to $x_m^{t'}$. \\
+Once this process concludes we have a strong subtree $S\leq T$ which has the same $\sim$-type as $T$ the colours of the nodes of which are determined by the colour of the earliest predecessor in the same equivalence class, which have been recorded in our tree $A$. Now we apply $1$-d Halpern-Lauchli to the tree $A$, and extract a corresponding $S'\leq S$, this is then monochromatic. 
+\end{proof}
+\end{lem}
+\begin{lem}
+Let $T$ be a finitely branching subtree of $\omega ^{<\omega}$, $\sim$ an equivalence relation on $\omega$ with infinitely many classes, all infinite, and colouring $c: \mathcal{S}_n(T) \to r$ of strong subtrees of height $n$ all contained in the same class, there is a strong subtree $S\leq T$ with levels $A\subseteq \omega$ such that $\sim |_A$ has infinitely many classes, all infinite on which the colouring is monochromatic.
+\begin{proof}
+This, as with many results in Ramsey theory, will, if you squint, look a bit like a proof of Ramsey's theorem using the result above as Dirichilet putting some pigeons in some boxes. \\
+We do this by induction on $n$, the case $n=1$ being the previous lemma. I will for the moment write out $n=2$ and leave the more complicated versions until later because this has the important ideas. \\
+Take the first point, then look at its immediate successors in $T$, this gives a product of trees. Colour the product according to the colour of the strong subtree given, and find a sequence of matrices as before. This gives a colour to the point. Now progress up to the next level and repeat the process, there will always be the possibility of choosing a next stage because of the density of the matrices. Actually I need to modify this, because I need to be able to say that given an appropriate collection of dense matrices I can thin it to one of the same, this should be by the same argument that I can always make things be level subsets. This gives you a colouring of the nodes in a copy of the original tree, apply the n=1 case.
+\end{proof}
+\end{lem}
+The remainder follows the same steps as the basic equivalence relation idea. Namely, I pick the first class, make it well behaved on the first few classes, pick our first point, make it well behaved above that. The reason this works being that as we work through, depending on which class structure we've chosen, either the first points in each class only need to behave well with the first few classes, or the first few points only need to behave well after a certain point.
+\end{document}
